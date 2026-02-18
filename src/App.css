@@ -1,0 +1,403 @@
+/* 基礎設置與變數已在 index.css */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+.navbar.scrolled {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 0;
+  box-shadow: var(--glass-shadow);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar.scrolled .logo {
+  color: var(--primary-green);
+}
+
+.navbar.scrolled .nav-links a {
+  color: var(--text-dark);
+}
+
+/* 分頁專用：避開導覽列的內距 */
+.pt-nav {
+  padding-top: 120px;
+}
+
+.bg-light {
+  background-color: #f4f6f3;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  /* 預設在 Hero 上為白色 */
+  font-family: var(--font-display);
+  transition: color 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  /* 預設在 Hero 上為淺色 */
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-green);
+}
+
+.nav-links.active {
+  display: flex !important;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 100vh;
+  background: white;
+  padding: 8rem 3rem;
+  gap: 2rem;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  animation: slideIn 0.4s ease forwards;
+}
+
+.nav-links.active a {
+  color: var(--text-dark) !important;
+  font-size: 1.2rem;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* 漢堡按鈕樣式 */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 10px;
+}
+
+.menu-toggle .bar {
+  width: 28px;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled .menu-toggle .bar,
+.navbar.menu-open .menu-toggle .bar {
+  background-color: var(--primary-green);
+}
+
+.menu-open .menu-toggle .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-open .menu-toggle .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-open .menu-toggle .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Hero Section */
+.hero {
+  height: 90vh;
+  /* 調整首頁 Hero 高度為大氣但不佔滿 */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.hero .badge {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: var(--primary-green);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* Content Sections */
+.section {
+  padding: var(--spacing-xl) 0;
+}
+
+/* About Section */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-text .label {
+  color: var(--accent-gold);
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.certifications {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.cert-item {
+  color: var(--primary-green);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Services */
+.section-title {
+  text-align: center;
+  margin-bottom: var(--spacing-l);
+}
+
+.section-title h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.service-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+.service-image {
+  height: 240px;
+}
+
+/* Space Showcase */
+.space-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+.space-info {
+  padding: 5rem;
+}
+
+.space-info h2 {
+  font-size: 2.8rem;
+  margin: 1rem 0 2rem;
+}
+
+.space-info ul {
+  margin-bottom: 3rem;
+}
+
+.space-info li {
+  font-size: 1.15rem;
+  margin-bottom: 0.8rem;
+  color: #444;
+}
+
+.space-image {
+  min-height: 500px;
+}
+
+/* 占位符樣式 */
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-weight: 700;
+  font-family: var(--font-display);
+  text-align: center;
+  padding: 2rem;
+}
+
+.image-placeholder.green {
+  background: rgba(var(--primary-green-rgb), 0.05);
+  color: var(--primary-green);
+}
+
+.image-placeholder.wood {
+  background: #E8DCC4;
+  color: #8D734A;
+}
+
+/* Footer */
+footer {
+  background: #1a2e18;
+  color: white;
+  padding: 6rem 0 2rem;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.footer-info h3,
+.footer-cta h3 {
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.footer-cta {
+  max-width: 400px;
+}
+
+.footer-cta p {
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .about-grid,
+  .space-showcase,
+  .footer-flex {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .container {
+    padding: 0 var(--spacing-s);
+  }
+
+  .hero {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    margin: 0 auto 2.5rem;
+  }
+
+  .space-info {
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  .space-info h2 {
+    font-size: 2.2rem;
+  }
+
+  .space-info ul {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .section {
+    padding: var(--spacing-l) 0;
+  }
+
+  .section-title h2 {
+    font-size: 2.2rem;
+  }
+}

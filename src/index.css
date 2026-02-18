@@ -1,0 +1,120 @@
+:root {
+  /* 配色計畫 */
+  --primary-green: #2D5A27;
+  --primary-green-rgb: 45, 90, 39;
+  --secondary-wood: #D4B483;
+  --bg-organic: #FDFCF8;
+  --text-dark: #2C2C2C;
+  --text-light: #FDFCF8;
+  --accent-gold: #C5A059;
+
+  /* 字體 */
+  --font-main: 'Noto Sans TC', sans-serif;
+  --font-display: 'Montserrat', 'Noto Serif TC', serif;
+
+  /* 玻璃擬態 */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+
+  /* 間距 */
+  --spacing-xs: 0.5rem;
+  --spacing-s: 1.5rem;
+  --spacing-m: 3rem;
+  --spacing-l: 6rem;
+  --spacing-xl: 12rem;
+
+  font-family: var(--font-main);
+  line-height: 1.8;
+  /* 增加行高，提升閱讀舒適度 */
+  font-weight: 400;
+  color: var(--text-dark);
+  background-color: var(--bg-organic);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--primary-green);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 通用容器 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-m);
+}
+
+/* 按鈕樣式 */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-green);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(var(--primary-green-rgb), 0.2);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary-green);
+  color: var(--primary-green);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-green);
+  color: var(--text-light);
+}
+
+/* 段落動畫基礎 */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
