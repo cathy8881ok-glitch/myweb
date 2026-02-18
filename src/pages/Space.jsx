@@ -20,7 +20,7 @@ function Space() {
                             </div>
                         </div>
                         <div className="space-image">
-                            <img src="https://images.unsplash.com/photo-1593074202233-31ab1dfadb43?auto=format&fit=crop&q=80&w=1200" alt="優雅大氣的教室空間" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img src="https://images.unsplash.com/photo-1545209174-cd1d15765bc6?auto=format&fit=crop&q=80&w=1200" alt="優雅大氣的教室空間" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                     </div>
                 </div>
